@@ -67,9 +67,9 @@ Leave the passphrase empty for automation.
 
 ![alt text](Image/diagram-03.png)
 
-![alt text](Image/diagram-04.png)
+![alt text](Image/new-vim.png)
 
-![alt text](Image/diagram-05.png)
+![alt text](Image/time-home.png)
 
 * Copy the Public Key to the Destination Server
 
@@ -133,7 +133,7 @@ set -ex  # Exit on errors and print commands
 
 # Define source and destination directories
 SRC_DIR="/home/ubuntu/osagie.txt"
-DEST_HOST="ubuntu@172.31.27.154"
+DEST_HOST="ubuntu@3.10.51.166"
 DEST_DIR="/home/ubuntu"
 
 # Rsync command to synchronize files and directories
@@ -143,10 +143,6 @@ rsync -avz "$SRC_DIR" "$DEST_HOST:$DEST_DIR"
 if [ $? -eq 0 ]; then
     echo "Backup completed successfully."
 
-else
-    echo "Backup failed!"
-
-fi
 
 ```
 
@@ -169,7 +165,7 @@ crontab -e
 * Add a cron job to execute the backup script at the desired interval. for every 2hours:
 
 ```
-0 */2 * * * /path/to/backup.sh
+*/2 * * * * /home/ubuntu/backup.sh
 ```
 
 * List the cron jobs to confirm the backup job is scheduled:
